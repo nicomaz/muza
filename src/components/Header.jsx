@@ -1,10 +1,12 @@
+import { useContext } from "react";
+import { ThemeContext } from "../contexts/Theme";
+
 export default function Header() {
+  const { theme } = useContext(ThemeContext);
+
   return (
-    <header id="header">
-      <nav>
-        <span className="material-symbols-outlined pointer">menu</span>
-      </nav>
-      <h1 className="pointer">muza</h1>
+    <header id="header" className={theme}>
+      <h1>muza</h1>
     </header>
   );
 }

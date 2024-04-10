@@ -1,5 +1,4 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
   color: rgba(255, 255, 255, 0.87);
@@ -16,10 +15,28 @@ body {
   padding: 0;
 }
 
+h1,
+h2,
+h3 {
+  font-family: sofia-pro, sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -1px;
+  line-height: 1.2;
+  text-align: center;
+}
+
+h2 {
+  font-weight: 400;
+}
+
 #header {
-  width: 100vw;
-  margin: 0;
-  position: sticky;
+  position: absolute;
   top: 0;
   z-index: 1;
   display: flex;
@@ -27,4 +44,86 @@ body {
   justify-content: space-between;
   align-items: baseline;
   color: rgba(255, 255, 255, 0.87);
+  padding: 0 1rem;
+  max-width: 100%;
+}
+
+#header > h1,
+#header > nav > span {
+  cursor: pointer;
+}
+
+.container {
+  width: 100vw;
+  max-width: 100%;
+}
+
+#vinyl-sleeve {
+  width: 100vw;
+  height: 90vw;
+  position: absolute;
+  bottom: 0;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  box-shadow: rgba(47, 2, 2, 0.287) -6px -2px 16px 0px,
+    rgba(0, 0, 0, 0.161) -3px -3px 6px 0px inset,
+    rgba(0, 0, 0, 0.124) -3px -3px 6px 1px inset;
+}
+
+#vinyl {
+  height: auto;
+  width: 90vw;
+  max-width: 100%;
+  border-radius: 50%;
+  box-shadow: rgba(2, 27, 48, 0.264) 6px 2px 16px 0px,
+    rgba(47, 2, 2, 0.383) -6px -2px 16px 0px;
+  position: absolute;
+  bottom: 45vw;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+}
+
+.artists {
+  background-color: transparent;
+}
+
+.songs {
+  background-color: transparent;
+}
+
+.background {
+  width: 100vw;
+  height: 100vh;
+}
+
+@media screen and (min-width: 768px) {
+  #vinyl-sleeve {
+    height: 40vh;
+    width: 95vw;
+    box-shadow: rgba(47, 2, 2, 0.135) -6px -2px 16px 0px,
+      rgba(0, 0, 0, 0.083) -3px -3px 6px 0px inset,
+      rgba(0, 0, 0, 0.061) -3px -3px 6px 1px inset;
+  }
+
+  .container {
+    width: 90vw;
+    margin: 0 auto;
+  }
+
+  #vinyl {
+    height: auto;
+    width: 100%;
+    border-radius: 50%;
+    box-shadow: rgba(2, 27, 48, 0.264) 6px 2px 16px 0px,
+      rgba(47, 2, 2, 0.383) -6px -2px 16px 0px;
+    bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+  }
 }
