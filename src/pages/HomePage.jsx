@@ -19,7 +19,6 @@ export default function HomePage() {
           initial={{ x: 0, y: 0 }}
           animate={{
             rotate: degree,
-
             originX: 0.5,
             originY: 0.5,
           }}

@@ -100,30 +100,57 @@ h2 {
   height: 100vh;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 600px) and (orientation: portrait) {
   #vinyl-sleeve {
-    height: 40vh;
     width: 95vw;
-    box-shadow: rgba(47, 2, 2, 0.135) -6px -2px 16px 0px,
-      rgba(0, 0, 0, 0.083) -3px -3px 6px 0px inset,
-      rgba(0, 0, 0, 0.061) -3px -3px 6px 1px inset;
-  }
-
-  .container {
-    width: 90vw;
-    margin: 0 auto;
+    height: 70vw;
   }
 
   #vinyl {
-    height: auto;
-    width: 100%;
-    border-radius: 50%;
-    box-shadow: rgba(2, 27, 48, 0.264) 6px 2px 16px 0px,
-      rgba(47, 2, 2, 0.383) -6px -2px 16px 0px;
-    bottom: 0;
-    margin-left: auto;
-    margin-right: auto;
+    width: 90vw;
+    max-width: 100%;
+    bottom: 25vw;
+  }
+}
+@media screen and (min-width: 600px) and (orientation: landscape) {
+  #vinyl-sleeve {
+    width: 90vh;
+    height: 42.5vh;
+  }
+
+  #vinyl {
+    width: 85vh;
+    max-width: 100%;
+    bottom: 0vh;
+  }
+}
+
+@media screen and (min-width: 800px) and (orientation: portrait) {
+  #vinyl-sleeve {
+    width: 95vw;
+    height: 65vw;
+  }
+
+  #vinyl {
+    width: 90vw;
+    max-width: 100%;
+    bottom: 20vw;
+  }
+}
+
+@media screen and (min-width: 800px) and (orientation: landscape) {
+  #vinyl-sleeve {
+    width: 60vh;
+    height: 50vh;
     left: 0;
-    right: 0;
+    margin-left: 6rem;
+    bottom: 3vh;
+  }
+
+  #vinyl {
+    width: 60vh;
+    max-width: 100%;
+    bottom: 23vh;
+    margin-left: 6rem;
   }
 }
