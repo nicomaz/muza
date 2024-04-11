@@ -100,6 +100,26 @@ h2 {
   height: 100vh;
 }
 
+button {
+  background-color: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+button.right {
+  position: absolute;
+  right: 0;
+  top: 35vh;
+}
+
+button.left {
+  position: absolute;
+  left: 0;
+  top: 35vh;
+  z-index: 1;
+}
+
 @media screen and (min-width: 600px) and (orientation: portrait) {
   #vinyl-sleeve {
     width: 95vw;
@@ -150,7 +170,7 @@ h2 {
   #vinyl {
     width: 60vh;
     max-width: 100%;
-    bottom: 23vh;
-    margin-left: 6rem;
+    margin-left: 0;
+    margin-right: 0;
   }
 }
