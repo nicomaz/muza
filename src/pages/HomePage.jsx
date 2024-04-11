@@ -12,7 +12,6 @@ export default function HomePage() {
   const [y1, setY] = useState(0);
   const [height, setHeight] = useState(0);
   const vinySleeveRef = useRef();
-
   const [width, setWidth] = useState(window.innerWidth);
   const [windowHeight, setWindowHeight] = useState(window.innerHeight);
 
@@ -42,29 +41,34 @@ export default function HomePage() {
       initial={{ opacity: 1, backgroundColor: "#f6b6c6" }}
       animate={{ backgroundColor: theme === "songs" ? "#f6b6c6" : "#6ac3f3" }}
     >
-      <div className="container">
-        <CarouselButton
-          setDegree={setDegree}
-          degree={degree}
-          number={-180}
-          direction="left"
-        />
+      <div>
         <motion.div
-          style={{ height: height, width: height, x: x1, y: y1 - height / 2 + 1 }}
+          style={{
+            height: height,
+            width: height,
+            x: x1,
+            y: y1 - height / 2 + 1,
+          }}
           animate={{
             rotate: degree,
           }}
           transition={{ duration: 1 }}
         >
+          <div className="flex-col-top">
+            <h2 className="ab">search for</h2>
+            <h2 className="song sub"> songs </h2>
+          </div>
           <Vinyl />
+          <div className="flex-col-bottom">
+            <h2 className="ab">search for</h2>
+            <h2 className="song sub"> artists </h2>
+          </div>
         </motion.div>
-        <CarouselButton
+        <VinylSleeve
+          vinySleeveRef={vinySleeveRef}
           setDegree={setDegree}
           degree={degree}
-          number={180}
-          direction="right"
         />
-        <VinylSleeve vinySleeveRef={vinySleeveRef} />
       </div>
     </motion.div>
   );

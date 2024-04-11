@@ -9,12 +9,14 @@ export default function CarouselButton({
 }) {
   const { theme, setTheme } = useContext(ThemeContext);
 
+  
   return (
     <button
       className={direction}
       onClick={() => {
         theme === "songs" ? setTheme("artists") : setTheme("songs");
         setDegree(degree + number);
+        
       }}
     >
       <span className="material-symbols-outlined">chevron_{direction}</span>

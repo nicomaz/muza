@@ -53,11 +53,6 @@ h2 {
   cursor: pointer;
 }
 
-.container {
-  width: 100vw;
-  max-width: 100%;
-}
-
 #vinyl-sleeve {
   width: 100vw;
   height: 90vw;
@@ -74,13 +69,12 @@ h2 {
 
 #vinyl {
   height: auto;
-  width: 90vw;
+  width: 100vw;
   max-width: 100%;
   border-radius: 50%;
   box-shadow: rgba(2, 27, 48, 0.264) 6px 2px 16px 0px,
     rgba(47, 2, 2, 0.383) -6px -2px 16px 0px;
   position: absolute;
-  bottom: 45vw;
   margin-left: auto;
   margin-right: auto;
   left: 0;
@@ -120,6 +114,50 @@ button.left {
   z-index: 1;
 }
 
+.flex-col-top {
+  display: flex;
+  flex-direction: column;
+  align-items: space-around;
+  margin-top: 0;
+  margin-bottom: 0;
+  text-align: center;
+  position: absolute;
+  top: -4rem;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 1;
+}
+
+.flex-col-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: space-around;
+  margin-top: 0;
+  margin-bottom: 0;
+  text-align: center;
+  position: absolute;
+  bottom: -4rem;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 1;
+  scale: -1;
+}
+
+.sub {
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: -1px;
+}
+
+h2 {
+  margin: 0;
+  line-height: 1;
+}
+
 @media screen and (min-width: 600px) and (orientation: portrait) {
   #vinyl-sleeve {
     width: 95vw;
@@ -127,9 +165,8 @@ button.left {
   }
 
   #vinyl {
-    width: 90vw;
+    width: 95vw;
     max-width: 100%;
-    bottom: 25vw;
   }
 }
 @media screen and (min-width: 600px) and (orientation: landscape) {
@@ -147,14 +184,13 @@ button.left {
 
 @media screen and (min-width: 800px) and (orientation: portrait) {
   #vinyl-sleeve {
-    width: 95vw;
-    height: 65vw;
+    width: 80vw;
+    height: 58vw;
   }
 
   #vinyl {
-    width: 90vw;
+    width: 80vw;
     max-width: 100%;
-    bottom: 20vw;
   }
 }
 
@@ -162,15 +198,35 @@ button.left {
   #vinyl-sleeve {
     width: 60vh;
     height: 50vh;
-    left: 0;
-    margin-left: 6rem;
-    bottom: 3vh;
   }
 
   #vinyl {
     width: 60vh;
     max-width: 100%;
-    margin-left: 0;
-    margin-right: 0;
+  }
+
+  button.left,
+  button.right {
+    position: relative;
+    left: 0;
+    top: -15vh;
+    right: 0;
+    height: fit-content;
+  }
+
+  .material-symbols-outlined {
+    font-size: 60px;
+  }
+
+  #sleeve-container {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    left: 0;
+    margin-left: 6rem;
+    bottom: 3vh;
+    width: 70vh;
+    height: 50vh;
   }
 }
