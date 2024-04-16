@@ -6,7 +6,7 @@ const headers = {
   "content-type": "application/json",
 };
 
-async function getArtist(artistName) {
+export async function getArtist(artistName) {
   try {
     const response = await fetch(
       `${BASE_URL}artist.search&artist=${artistName}&api_key=${apiKey}&limit=5&format=json`,
@@ -25,4 +25,20 @@ async function getArtist(artistName) {
   }
 }
 
-export default getArtist;
+export async function getSimilarArtists(artistName) {
+  try {
+    const response = await fetch(
+      `${BASE_URL}artist.getsimilar&artist=${artistName}&api_key=${apiKey}&format=json`,
+      headers
+    );
+
+    if (!response.ok) {
+      throw new Error("Artist does not exist");
+    }
+
+    const data = await response.json();
+    return data.similarartists.artist;
+  } catch (error) {
+    console.error(error);
+  }
+}

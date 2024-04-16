@@ -1,4 +1,5 @@
 import { ThemeContext } from "../contexts/Theme";
+import { Link } from "react-router-dom";
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import VinylSleeve from "../components/VinylSleeve";
@@ -22,7 +23,6 @@ export default function HomePage() {
   });
   const [searchOpen, setSearchOpen] = useState(true);
 
-
   // check if window size has changed to update vinyl size
   useEffect(() => {
     const handleResize = () => {
@@ -43,6 +43,7 @@ export default function HomePage() {
     setHeight(vinySleeveRef.current.getBoundingClientRect().width);
   }, [width, windowHeight]);
 
+  console.log(input.artist);
   return (
     <motion.div
       className="background"
@@ -82,14 +83,31 @@ export default function HomePage() {
           setSearchOpen={setSearchOpen}
         />
       </div>
-      <CheckInputContainer
-        setArtists={setArtists}
-        artists={artists}
-        input={input}
-        setInput={setInput}
-        searchOpen={searchOpen}
-        setSearchOpen={setSearchOpen}
-      />
+      {input.artist.length > 0 && (
+        <CheckInputContainer
+          setArtists={setArtists}
+          artists={artists}
+          input={input}
+          setInput={setInput}
+          searchOpen={searchOpen}
+          setSearchOpen={setSearchOpen}
+        />
+      )}
+      <div>
+        <button>
+          <div className="flex">
+            <div className="sticker">
+              <Link
+                to={`/artist/${input.artist}`}
+                state={{ input }}
+                id="center"
+              >
+                search
+              </Link>
+            </div>
+          </div>
+        </button>
+      </div>
     </motion.div>
   );
 }
