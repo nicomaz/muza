@@ -1,4 +1,4 @@
-import getArtist from "../utils/api";
+import {getArtist} from "../utils/api";
 
 export default function FormsContainer({
   setArtists,
@@ -31,7 +31,6 @@ export default function FormsContainer({
               onChange={handleChange}
             />
             <span>Artist</span>
-            <button></button>
           </label>
         </div>
       </form>
