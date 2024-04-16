@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import VinylSleeve from "../components/VinylSleeve";
 import Vinyl from "../components/Vinyl";
-import CarouselButton from "../components/CarouselButton";
+import CheckInputContainer from "../components/CheckInputContainer";
 
 export default function HomePage() {
   const { theme } = useContext(ThemeContext);
@@ -14,6 +14,14 @@ export default function HomePage() {
   const vinySleeveRef = useRef();
   const [width, setWidth] = useState(window.innerWidth);
   const [windowHeight, setWindowHeight] = useState(window.innerHeight);
+
+  const [artists, setArtists] = useState([]);
+  const [input, setInput] = useState({
+    artist: "",
+    song: "",
+  });
+  const [searchOpen, setSearchOpen] = useState(true);
+
 
   // check if window size has changed to update vinyl size
   useEffect(() => {
@@ -56,20 +64,32 @@ export default function HomePage() {
         >
           <div className="flex-col-top">
             <h2 className="ab">search for</h2>
-            <h2 className="song sub"> songs </h2>
+            <h2 className="song sub"> artists </h2>
           </div>
           <Vinyl />
           <div className="flex-col-bottom">
             <h2 className="ab">search for</h2>
-            <h2 className="song sub"> artists </h2>
+            <h2 className="song sub"> songs </h2>
           </div>
         </motion.div>
         <VinylSleeve
           vinySleeveRef={vinySleeveRef}
           setDegree={setDegree}
           degree={degree}
+          setArtists={setArtists}
+          input={input}
+          setInput={setInput}
+          setSearchOpen={setSearchOpen}
         />
       </div>
+      <CheckInputContainer
+        setArtists={setArtists}
+        artists={artists}
+        input={input}
+        setInput={setInput}
+        searchOpen={searchOpen}
+        setSearchOpen={setSearchOpen}
+      />
     </motion.div>
   );
 }

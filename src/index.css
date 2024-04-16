@@ -6,6 +6,7 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-family: sofia-pro, sans-serif;
 }
 
 body {
@@ -92,6 +93,11 @@ h2 {
 .background {
   width: 100vw;
   height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
 }
 
 button {
@@ -156,6 +162,51 @@ button.left {
 h2 {
   margin: 0;
   line-height: 1;
+}
+
+.has-float-label {
+  font-size: 110%;
+  display: block;
+  position: relative;
+}
+
+.has-float-label > span {
+  position: absolute;
+  left: 0;
+  top: 0;
+  cursor: text;
+  font-size: 100%;
+  opacity: 1;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+.has-float-label input:placeholder-shown:not(:focus) + * {
+  top: 1em;
+  opacity: 1;
+}
+
+::placeholder {
+  color: transparent;
+}
+
+form {
+  width: 50%;
+  margin: 0 auto;
+  margin-top: 2rem;
+}
+
+input {
+  background-color: transparent;
+  margin: 1rem 0;
+  color: rgb(255, 255, 255);
+  border: none;
+}
+
+input,
+select {
+  width: 100%;
+  margin-bottom: 0.5rem;
 }
 
 @media screen and (min-width: 600px) and (orientation: portrait) {
