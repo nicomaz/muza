@@ -10,6 +10,7 @@
 }
 
 body {
+  text-rendering: optimizeLegibility;
   --pink-main: #f6b6c6;
   --blue-main: #6ac3f3;
   margin: 0;
@@ -98,6 +99,7 @@ h2 {
   grid-template-rows: repeat(2, 1fr);
   grid-column-gap: 0px;
   grid-row-gap: 0px;
+  overflow: scroll;
 }
 
 button {
