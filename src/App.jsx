@@ -9,7 +9,7 @@ const router = createBrowserRouter([
     path: "/",
     element: <HomePage />,
   },
-  { path: "/artist/:artistId", element: <ArtistResultPage /> },
+  { path: "/similar-artists/:artistId", element: <ArtistResultPage /> },
 ]);
 
 function App() {
