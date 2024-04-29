@@ -1,10 +1,12 @@
 import { ThemeContext } from "../contexts/Theme";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import VinylSleeve from "../components/VinylSleeve";
 import Vinyl from "../components/Vinyl";
 import CheckInputContainer from "../components/CheckInputContainer";
+import { getArtist } from "../utils/api";
+import ErrorModal from "../components/ErrorModal";
 
 export default function HomePage() {
   const { theme } = useContext(ThemeContext);
@@ -22,6 +24,9 @@ export default function HomePage() {
     song: "",
   });
   const [searchOpen, setSearchOpen] = useState(true);
+  const [realArtist, setRealArtist] = useState(true);
+
+  const navigate = useNavigate();
 
   // check if window size has changed to update vinyl size
   useEffect(() => {
@@ -43,20 +48,32 @@ export default function HomePage() {
     setHeight(vinySleeveRef.current.getBoundingClientRect().width);
   }, [width, windowHeight]);
 
-  console.log(input.artist);
+  const searchForArtist = () => {
+    setSearchOpen(true);
+    getArtist(input.artist).then((artists) => {
+      setArtists(artists);
+      artists.length > 0
+        ? navigate(`/similar-artists/${input.artist}`)
+        : setRealArtist(false);
+    });
+  };
+
   return (
     <motion.div
       className="background"
       initial={{ opacity: 1, backgroundColor: "#f6b6c6" }}
       animate={{ backgroundColor: theme === "songs" ? "#f6b6c6" : "#6ac3f3" }}
     >
+      {!realArtist ? (
+        <ErrorModal setRealArtist={setRealArtist} setInput={setInput} />
+      ) : null}
       <div>
         <motion.div
           style={{
             height: height,
             width: height,
             x: x1,
-            y: y1 - height / 2 + 1,
+            y: y1 - height / 2 - 36,
           }}
           animate={{
             rotate: degree,
@@ -64,13 +81,13 @@ export default function HomePage() {
           transition={{ duration: 1 }}
         >
           <div className="flex-col-top">
-            <h2 className="ab">search for</h2>
-            <h2 className="song sub"> artists </h2>
+            <h2 className="ab">Search for</h2>
+            <h2 className="sub"> artists </h2>
           </div>
           <Vinyl />
           <div className="flex-col-bottom">
-            <h2 className="ab">search for</h2>
-            <h2 className="song sub"> songs </h2>
+            <h2 className="ab">Search for</h2>
+            <h2 className="sub"> songs </h2>
           </div>
         </motion.div>
         <VinylSleeve
@@ -93,17 +110,11 @@ export default function HomePage() {
           setSearchOpen={setSearchOpen}
         />
       )}
-      <div>
+      <div className="button__container">
         <button>
           <div className="flex">
-            <div className="sticker">
-              <Link
-                to={`/artist/${input.artist}`}
-                state={{ input }}
-                id="center"
-              >
-                search
-              </Link>
+            <div className="sticker" onClick={() => searchForArtist()}>
+              Search
             </div>
           </div>
         </button>
