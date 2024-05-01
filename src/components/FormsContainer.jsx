@@ -1,4 +1,4 @@
-import { getArtist } from "../utils/api";
+import {getArtist} from "../utils/api";
 
 export default function FormsContainer({
   setArtists,
@@ -15,9 +15,7 @@ export default function FormsContainer({
     e.preventDefault();
     setSearchOpen(true);
     const { value } = e.target[0];
-    getArtist(value).then((artists) => {
-      setArtists(artists);
-    });
+    getArtist(value).then((artists) => setArtists(artists));
   };
 
   return (
