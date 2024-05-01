@@ -425,31 +425,42 @@ button .sticker {
     font-size: 1.5rem;
   }
 
+  .button__container {
+    grid-area: 2 / 2 / 3 / 3;
+  }
+
   .sticker {
-    margin-top: 30px;
-    width: 180px;
-    height: 60px;
+    width: 360px;
+    height: 120px;
     background: linear-gradient(
-      24deg,
-      rgb(241, 241, 241) 83%,
-      rgba(33, 1, 1, 0.138) 83%,
+      18deg,
+      rgb(241, 241, 241) 86%,
+      rgba(33, 1, 1, 0.138) 80%,
 
       rgba(0, 0, 0, 0.017) 100%
     );
-    padding-top: 40px;
-    position: relative;
+    padding-top: 80px;
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 60px;
     border-radius: 10px;
     text-align: center;
-    color: black;
+    color: white;
   }
+
+  .sticker {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: rgba(0, 0, 0, 0.714);
+  }
+
   .sticker:before {
     content: "";
     position: absolute;
-    top: -25px;
-    left: 126px;
-    width: 110px;
-    height: 50px;
-    background-color: red;
+    top: -44px;
+    left: 222px;
+    width: 280px;
+    height: 88px;
     background: linear-gradient(
       to bottom left,
       transparent 75%,
@@ -467,6 +478,10 @@ button .sticker {
     left: 0;
     right: 0;
     top: 35%;
+  }
+
+  .has-float-label {
+    font-size: 140%;
   }
 
   .card {
